@@ -33,10 +33,11 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 			<dependency>
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
-				<version>5.0.4</version>
+				<version>8.0.12</version>
 			</dependency>
 			<dependency>
 				<groupId>com.alibaba</groupId>
