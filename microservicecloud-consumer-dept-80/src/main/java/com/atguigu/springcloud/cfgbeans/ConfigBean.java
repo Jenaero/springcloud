@@ -17,7 +17,14 @@ public class ConfigBean //boot -->spring   applicationContext.xml --- @Configura
 	{
 		return new RestTemplate();
 	}
-	
+
+	/*	@see spring-framework 4
+	 *	RestTemplate提供了多种便捷访问远程Http服务的方法。==>相当于httpClient
+	 *	是一种简单便捷的访问restful服务模板类,是spring提供的用于
+	 * 	访问Rest服务的客户端模板工具集
+	 */
+
+
 	@Bean
 	public IRule myRule()
 	{
