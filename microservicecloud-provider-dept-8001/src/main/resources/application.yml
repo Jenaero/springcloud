@@ -28,10 +28,10 @@ eureka:
       #defaultZone: http://localhost:7001/eureka
        defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/      
   instance:
-    instance-id: microservicecloud-dept8001
-    prefer-ip-address: true     #访问路径可以显示IP地址     
+  instance-id: microservicecloud-dept8001                   # 在eureka显示的主机映射名称
+    prefer-ip-address: true                                 # 访问路径可以显示IP地址
  
-info: 
+info:                                                       # 自定义展示的键值对
   app.name: atguigu-microservicecloud
   company.name: www.atguigu.com
   build.artifactId: $project.artifactId$
