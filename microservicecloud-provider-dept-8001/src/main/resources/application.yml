@@ -13,7 +13,7 @@ spring:
    datasource:
     type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
     driver-class-name: com.mysql.cj.jdbc.Driver              # mysql驱动包
-    url: jdbc:mysql://localhost:3306/clouddb01?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true              # 数据库名称
+    url: jdbc:mysql://localhost:3306/clouddb01?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true             # 数据库名称
     username: root
     password: dev123456
     dbcp2:
@@ -25,15 +25,17 @@ spring:
 eureka:
   client: #客户端注册进eureka服务列表内
     service-url: 
-      #defaultZone: http://localhost:7001/eureka
-       defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/      
+      #defaultZone: http://localhost:7001/eureka            # 单机版
+       defaultZone:  http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/      # 集群版
+
   instance:
+      prefer-ip-address: true                              # 访问路径可以显示IP地址
   instance-id: microservicecloud-dept8001                   # 在eureka显示的主机映射名称
-    prefer-ip-address: true                                 # 访问路径可以显示IP地址
- 
+
 info:                                                       # 自定义展示的键值对
   app.name: atguigu-microservicecloud
   company.name: www.atguigu.com
-  build.artifactId: $project.artifactId$
-  build.version: $project.version$
+  build.artifactId: @project.artifactId@                    # yml读取pom文件变量 @param@,读取文件内部变量${param}
+  build.version: @project.version@
+  project.build.finalName: ${project.build.finalName}       # 两种方式都可以 ${param} @param@
 
